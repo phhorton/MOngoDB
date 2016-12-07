@@ -3,6 +3,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import static com.mongodb.client.model.Filters.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class MongoDB implements IMongoDB {
 
     @Override
     public Document queryForDocument(String name) {
-        return null;
+        return collection.find(eq("name", name)).first();
     }
 
     @Override
